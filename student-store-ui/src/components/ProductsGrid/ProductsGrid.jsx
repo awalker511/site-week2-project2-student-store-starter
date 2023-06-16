@@ -3,15 +3,25 @@ import "./ProductsGrid.css";
 import ProductCard from "../ProductCard/ProductCard";
 
 const ProductsGrid = ({
+  category,
   searchQuery,
   products,
   handleAddItemToCart,
   handleRemoveItemToCart,
 }) => {
   let productsList = [];
-  if (searchQuery) {
+  if (searchQuery || category) {
+    console.log(category);
     productsList = products.filter((productItem) => {
-      return productItem.name.toLowerCase().includes(searchQuery.toLowerCase());
+      if (category.toLowerCase() === "all categories")
+        return productItem.name
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase());
+      else
+        return (
+          productItem.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
+          productItem.category === category.toLowerCase()
+        );
     });
   } else {
     productsList = products;

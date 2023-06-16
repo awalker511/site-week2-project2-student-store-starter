@@ -19,10 +19,21 @@
 .sub-navbar .content .row {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   flex: 1;
   margin: 20px 0;
+  max-width: 1000px;
 }
+.row {
+  align-self: center;
+  justify-self: center;
+}
+.links {
+  display: flex;
+  flex-direction: row;
+}
+
 .sub-navbar .category-menu {
   display: flex;
   flex-direction: row;
@@ -36,17 +47,28 @@
 }
 .sub-navbar .content .cart {
   color: white;
-  background: #00c385;
+  background: #4e84d4;
   width: 170px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 20px;
+  margin-left: 200px;
+}
+.help {
+  margin-left: 200px;
+}
+.menu-container {
+  margin-left: 1050px;
 }
 .category-menu li button {
-  background: white;
-  font-size: larger;
+  background-color: #4e84d4;
+  font-size: medium;
+  width: fit-content;
+  color: white;
+}
+.category-menu li button:hover {
+  background-color: #284e88;
 }
 .sub-navbar .content .help {
   display: flex;
@@ -54,6 +76,7 @@
   align-items: center;
   font-weight: 500;
 }
-.row li {
-  background-color: #00c385;
+
+.category-menu button {
+  background-color: #4e84d4;
 }

@@ -13,7 +13,7 @@
   flex: 1;
   display: flex;
   flex-direction: row;
-  border-top: solid 1px var(--border-color);
+  border-top: solid 1px rgb(214, 214, 214);
 }
 .product-card .main-info {
   flex: 1;

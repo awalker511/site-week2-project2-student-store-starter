@@ -19,8 +19,6 @@ export default function App() {
   //States
   const [productsList, setProductsList] = useState([]);
   const [category, setCategory] = useState("all categories");
-  const [isFetching, setIsFetching] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
   const [error, setError] = useState(false);
   const [shoppingCart, setShoppingCart] = useState([]);
   const [quantity, setQuantity] = useState();
@@ -39,14 +37,6 @@ export default function App() {
       });
   }, []);
   useEffect(() => {}, []);
-
-  //category filter
-  // const filterProducts = productsList?.filter((product) => {
-  //   const buttonCat = category === "all categories" ? "" : category;
-  //   const categoryMatch =
-  //     buttonCat === "" || buttonCat === productsList?.category;
-  //   return categoryMatch;
-  // });
 
   //Handler Functions
 
@@ -73,6 +63,8 @@ export default function App() {
                   products={productsList}
                   searchQuery={searchQuery}
                   setSearchQuery={setSearchQuery}
+                  setCategory={setCategory}
+                  category={category}
                 />
               }
             />
@@ -87,7 +79,6 @@ export default function App() {
                 />
               }
             />
-            {/* <Route path="cart" element={} /> */}
           </Routes>
           <Navbar />
           {/* <Sidebar /> */}

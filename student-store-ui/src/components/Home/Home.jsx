@@ -10,6 +10,8 @@ import { useState, useEffect } from "react";
 import Contact from "../Contact/Contact";
 
 export default function Home({
+  category,
+  setCategory,
   products,
   searchQuery,
   setSearchQuery,
@@ -17,8 +19,6 @@ export default function Home({
   handleRemoveItemToCart,
   filterProducts,
 }) {
-  // const [searchQuery, setSearchQuery] = useState(products);
-
   return (
     <div id="buy" className="home">
       <Hero />
@@ -46,48 +46,68 @@ export default function Home({
             </div>
           </div>
           <div className="row">
-            <div className="hamburger-menu" onClick={(e) => {}}>
-              <i id="menu-icon" className="material-icons">
-                menu
-              </i>
+            <div className="menu-container">
+              <ul className="category-menu">
+                <li>
+                  <button
+                    className="all-categories"
+                    onClick={() => {
+                      setCategory("all categories");
+                    }}
+                  >
+                    All Categories
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="clothing"
+                    onClick={() => {
+                      setCategory("clothing");
+                    }}
+                  >
+                    Clothing
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="food"
+                    onClick={() => {
+                      setCategory("food");
+                    }}
+                  >
+                    Food
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="accessories"
+                    onClick={() => {
+                      setCategory("accessories");
+                    }}
+                  >
+                    Accessories
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="tech"
+                    onClick={() => {
+                      setCategory("tech");
+                    }}
+                  >
+                    Tech
+                  </button>
+                </li>
+              </ul>
             </div>
-            <ul className="category-menu">
-              <li className="all-categories">
-                <button
-                  className=""
-                  onClick={(e) => {
-                    className = "isActive";
-                    setCategory("all categories");
-                  }}
-                >
-                  All Categories
-                </button>
-              </li>
-              <li className="clothing">
-                <button
-                  className=""
-                  onClick={(e) => {
-                    className = "isActive";
-                    setCategory("clothing");
-                  }}
-                >
-                  Clothing
-                </button>
-              </li>
-              <li className="">
-                <button className="food">Food</button>
-              </li>
-              <li className="">
-                <button className="accessories">Accessories</button>
-              </li>
-              <li className="">
-                <button className="tech">Tech</button>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
-      <ProductsGrid searchQuery={searchQuery} products={products} />
+      <ProductsGrid
+        searchQuery={searchQuery}
+        products={products}
+        category={category}
+      />
       <About />
       <Contact />
     </div>

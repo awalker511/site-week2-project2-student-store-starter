@@ -29,32 +29,32 @@ const ProductCard = ({
           <div className="product-name">{product.name}</div>
           <div className="product-price">{formatter.format(product.price)}</div>
           <div>
-            {showDescription ? (
-              <div className="product-description">{product.description}</div>
-            ) : (
-              <div className="product-description">{}</div>
-            )}
+            <div className="actions">
+              <div className="buttons">
+                <button
+                  className="add"
+                  onClick={(e) => {
+                    quantity += 1;
+                  }}
+                >
+                  <i className="material-icons">add</i>
+                </button>
+                <button
+                  className="remove"
+                  onClick={(e) => {
+                    quantity ? (quantity -= 1) : (quantity = { quantity });
+                  }}
+                >
+                  <i className="material-icons">remove</i>
+                </button>
+              </div>
+              {showDescription ? (
+                <div className="product-description">{product.description}</div>
+              ) : (
+                <div className="product-description">{}</div>
+              )}
+            </div>
           </div>
-        </div>
-      </div>
-      <div className="actions">
-        <div className="buttons">
-          <button
-            className="add"
-            onClick={(e) => {
-              quantity += 1;
-            }}
-          >
-            <i className="material-icons">add</i>
-          </button>
-          <button
-            className="remove"
-            onClick={(e) => {
-              quantity ? (quantity -= 1) : (quantity = { quantity });
-            }}
-          >
-            <i className="material-icons">remove</i>
-          </button>
         </div>
       </div>
     </div>

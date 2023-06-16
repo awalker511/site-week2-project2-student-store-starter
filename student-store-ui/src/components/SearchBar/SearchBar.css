@@ -7,7 +7,7 @@
   font-size: 16px;
 }
 button {
-  background-color: #00c385;
+  background-color: #4e84d4;
   height: 40px;
   width: 40px;
   border: none;
@@ -19,7 +19,7 @@ button {
   justify-self: center;
   flex: 1;
   margin-top: 20px;
-  margin-right: 40px;
+  margin-left: 200px;
 }
 #search-icon {
   color: white;
