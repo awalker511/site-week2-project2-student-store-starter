@@ -1,0 +1,10 @@
+.product-view {
+  width: 500px;
+}
+.product-card {
+  background: var(--pure-white);
+  display: flex;
+  flex-direction: column;
+  border: solid 1px var(--border-color);
+  max-width: 800px;
+}
