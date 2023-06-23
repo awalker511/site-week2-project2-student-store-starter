@@ -1,6 +1,7 @@
 .shopping-cart {
   width: 100%;
-  color: #fff;
+  color: black;
+  margin-top: 10px;
 }
 .shopping-cart .open {
   max-width: 550px;
@@ -31,7 +32,7 @@
   width: 100%;
   margin: 5px 0;
 }
-.shopping-cart .CartTable .header {
+.shopping-cart.open .CartTable .header {
   display: flex;
   flex-direction: column;
   background: #ffffff;
@@ -39,11 +40,15 @@
   border-radius: 4px;
   width: 100%;
 }
+.shopping-cart.open {
+  margin: 0px auto 0px auto;
+}
 .shopping-cart .header-row {
   display: flex;
   height: 50px;
-  background-color: #2c4047;
+  background-color: #37392e;
   margin-bottom: 15px;
+  border-radius: 5px;
 }
 .shopping-cart .header-row span {
   flex: 1;
@@ -73,6 +78,15 @@
   border-radius: 4px;
   width: 100%;
   margin-top: 10px;
+  padding: 10px;
+}
+.shopping-cart .receipt .receipt-subtotal,
+.shopping-cart .receipt .receipt-taxes,
+.shopping-cart .receipt .receipt-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
 }
 .checkout-form .input-field .control {
   width: 100%;
@@ -86,4 +100,14 @@
   border: solid 1px #e4e4e4;
   flex: 1;
   font-size: 16px;
+}
+.shopping-cart .product-row span {
+  flex: 1;
+}
+.shopping-cart .product-row span.center {
+  display: flex;
+  justify-content: center;
+}
+.shopping-cart .receipt .receipt-total {
+  border-top: solid 0.5px gray;
 }

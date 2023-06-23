@@ -44,7 +44,6 @@ const ProductCard = ({
             >
               <i className="material-icons">remove</i>
             </button>
-            {quantity > 0 && <div className="quantity-count">{quantity}</div>}
 
             <button
               className="add"
@@ -52,6 +51,9 @@ const ProductCard = ({
             >
               <i className="material-icons">add</i>
             </button>
+          </div>
+          <div className="quantity">
+            {quantity > 0 && <div className="quantity-count">{quantity}</div>}
           </div>
           {showDescription ? (
             <div className="product-description">{product.description}</div>

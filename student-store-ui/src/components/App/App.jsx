@@ -11,19 +11,18 @@ import Navbar from "../Navbar/Navbar";
 import Sidebar from "../Sidebar/Sidebar";
 import Home from "../Home/Home";
 import ProductDetail from "../ProductDetail/ProductDetail";
-import Hero from "../Hero/Hero";
 import "./App.css";
-import ProductView from "../ProductView/ProductView";
-import ShoppingCart from "../ShoppingCart/ShoppingCart";
+import CheckoutForm from "../CheckoutForm/CheckoutForm";
 
 export default function App() {
   //States
   const [productsList, setProductsList] = useState([]);
   const [category, setCategory] = useState("all categories");
   const [isOpen, setIsOpen] = useState(false);
+  const [checkOutForm, setCheckOutForm] = useState();
   const [error, setError] = useState(false);
   const [shoppingCart, setShoppingCart] = useState([]);
-  const [quantity, setQuantity] = useState(0);
+  //const [quantity, setQuantity] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
 
   //GET request
@@ -40,7 +39,6 @@ export default function App() {
   useEffect(() => {}, []);
 
   //Handler Functions
-
   function handleOnToggle() {
     setIsOpen(!isOpen);
   }
@@ -54,8 +52,7 @@ export default function App() {
   };
 
   const handleAddItemToCart = (product) => {
-    console.log("function called");
-    let itemInCart = shoppingCart.find((item) => product.id === item.id);
+    let itemInCart = shoppingCart.find((item) => product.id === item.id); //finds item in cart that matches specific product id
     if (itemInCart) {
       let newCart = shoppingCart.map((item) => {
         if (item.id === itemInCart.id) {
@@ -77,15 +74,30 @@ export default function App() {
     }
   };
 
-  console.log("rerender");
-
   const handleRemoveItemToCart = (product) => {
-    const itemInCart = shoppingCart.find((item) => product.id === item.id);
-    if (itemInCart) {
-      itemInCart.quantity = itemInCart.quantity - 1;
-    } else {
-      setShoppingCart([]);
-    }
+    let newCart = shoppingCart
+      ?.map((item) => {
+        if (item.id === product.id && item.quantity === 1) {
+          let removedItems = shoppingCart.splice(shoppingCart[item.id]);
+          return null;
+        } else if (item.id === product.id) {
+          return { ...item, quantity: item.quantity - 1 };
+        } else {
+          return item;
+        }
+      })
+      .filter(Boolean);
+    setShoppingCart(newCart);
+  };
+  const handleCheckoutFormChange = (event) => {
+    setCheckOutForm({ name: event.target.value, email: event.target.value });
+  };
+  const handleOnSubmitCheckoutForm = () => {
+    setShoppingCart([]);
+    setCheckOutForm({
+      name: "",
+      email: "",
+    });
   };
 
   if (productsList.length === 0) {
@@ -105,6 +117,11 @@ export default function App() {
                     isOpen={isOpen}
                     shoppingCart={shoppingCart}
                     productsList={productsList}
+                    checkOutForm={checkOutForm}
+                    handleAddItemToCart={handleAddItemToCart}
+                    handleRemoveItemToCart={handleRemoveItemToCart}
+                    handleCheckoutFormChange={handleCheckoutFormChange}
+                    handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}
                   />
                   <Home
                     products={productsList}

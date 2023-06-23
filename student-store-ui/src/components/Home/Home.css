@@ -19,7 +19,7 @@
 .sub-navbar .content .row {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex: 1;
   margin: 20px 0;
@@ -47,12 +47,12 @@
 }
 .sub-navbar .content .cart {
   color: white;
-  background: #4e84d4;
-  width: 170px;
+  background: #87a878;
+  width: 100px;
   height: 40px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   margin-left: 200px;
 }
 .help {
@@ -62,13 +62,13 @@
   margin-left: 1050px;
 }
 .category-menu li button {
-  background-color: #4e84d4;
+  background-color: #87a878;
   font-size: medium;
   width: fit-content;
   color: white;
 }
 .category-menu li button:hover {
-  background-color: #284e88;
+  background-color: #64795b;
 }
 .sub-navbar .content .help {
   display: flex;
