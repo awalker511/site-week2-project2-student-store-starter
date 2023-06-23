@@ -8,6 +8,7 @@ import ProductsGrid from "../ProductsGrid/ProductsGrid";
 import About from "../About/About";
 import { useState, useEffect } from "react";
 import Contact from "../Contact/Contact";
+import Footer from "../Footer/Footer";
 
 export default function Home({
   category,
@@ -18,6 +19,8 @@ export default function Home({
   handleAddItemToCart,
   handleRemoveItemToCart,
   filterProducts,
+  cartProducts,
+  getQuantityOfItemInCart,
 }) {
   return (
     <div id="buy" className="home">
@@ -104,12 +107,17 @@ export default function Home({
         </div>
       </div>
       <ProductsGrid
+        handleAddItemToCart={handleAddItemToCart}
+        handleRemoveItemToCart={handleRemoveItemToCart}
         searchQuery={searchQuery}
         products={products}
         category={category}
+        cartProducts={cartProducts}
+        getQuantityOfItemInCart={getQuantityOfItemInCart}
       />
       <About />
       <Contact />
+      <Footer />
     </div>
   );
 }

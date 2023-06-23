@@ -1,6 +1,5 @@
 .product view .product-card {
-  height: 350px;
-  width: 250px;
+  max-width: 800px;
   background: var(--pure-white);
   display: flex;
   flex-direction: column;

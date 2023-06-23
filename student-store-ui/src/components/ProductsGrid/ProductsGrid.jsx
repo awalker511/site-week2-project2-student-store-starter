@@ -3,11 +3,14 @@ import "./ProductsGrid.css";
 import ProductCard from "../ProductCard/ProductCard";
 
 const ProductsGrid = ({
+  quantity,
+  cartProducts,
   category,
   searchQuery,
   products,
   handleAddItemToCart,
   handleRemoveItemToCart,
+  getQuantityOfItemInCart,
 }) => {
   let productsList = [];
   if (searchQuery || category) {
@@ -32,8 +35,18 @@ const ProductsGrid = ({
       <div className="content">
         <h3 className="best-sellers">Best Selling Products</h3>
         <div className="grid">
-          {productsList.map((element) => {
-            return <ProductCard product={element} showDescription={false} />;
+          {productsList.map((element, key) => {
+            return (
+              <ProductCard
+                key={element.id}
+                product={element}
+                showDescription={false}
+                quantity={getQuantityOfItemInCart(cartProducts, element)}
+                handleAddItemToCart={handleAddItemToCart}
+                handleRemoveItemToCart={handleRemoveItemToCart}
+                cartProducts={cartProducts}
+              />
+            );
           })}
         </div>
       </div>

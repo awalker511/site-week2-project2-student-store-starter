@@ -37,3 +37,7 @@ a {
   color: white;
   text-decoration: none;
 }
+.navbar .content .logo {
+  width: 100px;
+  margin-left: 50px;
+}
