@@ -27,6 +27,9 @@
 .sidebar.closed .shopping-cart {
   content-visibility: hidden;
 }
+.sidebar.closed .checkout-success {
+  content-visibility: hidden;
+}
 .sidebar.closed .wrapper .toggle-button {
   background: #87a878;
 }

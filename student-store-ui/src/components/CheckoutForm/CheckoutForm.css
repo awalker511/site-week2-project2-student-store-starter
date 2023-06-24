@@ -1,5 +1,10 @@
 .checkout-form .checkout-button {
   width: fit-content;
-  background-color: green;
+  background-color: #574d32;
   justify-self: center;
+  border-radius: 5px;
+  color: white;
+}
+.checkout-form .checkout-failure {
+  content-visibility: hidden;
 }

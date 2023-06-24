@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./CheckoutForm.css";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
-
+import Sidebar from "../Sidebar/Sidebar";
 const CheckoutForm = ({
   isOpen,
   shoppingCart,
@@ -49,21 +49,22 @@ const CheckoutForm = ({
       <button className="checkout-button" onClick={handleOnSubmitCheckoutForm}>
         Checkout
       </button>
+      {/* <div className="sidebar closed"> */}
       <div className="checkout-success">
         <h3>
           Checkout Info{" "}
-          <span class="icon button">
-            <i class="material-icons md-48">fact_check</i>
+          <span className="icon button">
+            <i className="material-icons md-48">fact_check</i>
           </span>
         </h3>
-        <div class="card">
+        <div className="card">
           <header class="card-head">
-            <h4 class="card-title">Receipt</h4>
+            <h4 className="card-title">Receipt</h4>
           </header>
-          <section class="card-body">
-            <p class="header"></p>
+          <section className="card-body">
+            <p className="header"></p>
             {shoppingCart.length > 0 && (
-              <ul class="purchase">
+              <ul className="purchase">
                 {shoppingCart.map((element, index) => {
                   return (
                     <li key={element.id}>
@@ -76,12 +77,13 @@ const CheckoutForm = ({
               </ul>
             )}
           </section>
-          <footer class="card-foot">
-            <button class="button">Exit</button>
+          <footer className="card-foot">
+            <button className="button">Exit</button>
           </footer>
         </div>
       </div>
     </div>
+    // </div>
   );
 };
 
