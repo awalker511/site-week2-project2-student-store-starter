@@ -13,6 +13,8 @@ export default function Sidebar({
   checkOutForm,
   handleOnSubmitCheckoutForm,
   handleOnToggle,
+  handleCheckout,
+  receipt,
 }) {
   return (
     <section
@@ -47,13 +49,15 @@ export default function Sidebar({
         handleAddItemToCart={handleAddItemToCart}
         handleRemoveItemToCart={handleRemoveItemToCart}
       />
-      {/* <CheckoutForm
+      <CheckoutForm
         isOpen={isOpen}
         checkOutForm={checkOutForm}
         shoppingCart={shoppingCart}
         handleCheckoutFormChange={handleCheckoutFormChange}
         handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}
-      /> */}
+        handleCheckout={handleCheckout}
+        receipt={receipt}
+      />
     </section>
   );
 }

@@ -19,7 +19,10 @@ export default function App() {
   const [productsList, setProductsList] = useState([]);
   const [category, setCategory] = useState("all categories");
   const [isOpen, setIsOpen] = useState(false);
-  const [checkOutForm, setCheckOutForm] = useState();
+  const [checkOutForm, setCheckOutForm] = useState({ name: "" });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [receipt, setReceipt] = useState({});
   const [error, setError] = useState(false);
   const [shoppingCart, setShoppingCart] = useState([]);
   //const [quantity, setQuantity] = useState(0);
@@ -28,7 +31,7 @@ export default function App() {
   //GET request
   useEffect(() => {
     axios
-      .get("https://codepath-store-api.herokuapp.com/store")
+      .get("http://localhost:3001/store")
       .then((response) => {
         setProductsList(response.data.products);
       })
@@ -42,6 +45,7 @@ export default function App() {
   function handleOnToggle() {
     setIsOpen(!isOpen);
   }
+
   const getQuantityOfItemInCart = (cart, item) => {
     let prodQ = cart?.find((prod) => item.id == prod.id);
     if (prodQ) {
@@ -89,14 +93,24 @@ export default function App() {
       .filter(Boolean);
     setShoppingCart(newCart);
   };
+
   const handleCheckoutFormChange = (event) => {
-    setCheckOutForm({ name: event.target.value, email: event.target.value });
+    setCheckOutForm({
+      ...checkOutForm,
+      [event.target.name]: event.target.value,
+    });
   };
+
   const handleOnSubmitCheckoutForm = () => {
     setShoppingCart([]);
     setCheckOutForm({
       name: "",
       email: "",
+    });
+    setReceipt({
+      name: checkOutForm.name,
+      email: checkOutForm.email,
+      shoppingCart: shoppingCart,
     });
   };
 

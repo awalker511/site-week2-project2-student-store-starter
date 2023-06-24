@@ -9,11 +9,11 @@ const ProductDetail = ({ handleAddItemToCart, handleRemoveItemToCart }) => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
-  console.log(id);
+  //console.log(id);
 
   useEffect(() => {
     axios
-      .get(`https://codepath-store-api.herokuapp.com/store/${id}`)
+      .get(`http://localhost:3001/store/${id}`)
       .then((response) => {
         setProduct(response.data.product);
         setLoading(false);

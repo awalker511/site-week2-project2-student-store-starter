@@ -14,7 +14,7 @@ const ProductsGrid = ({
 }) => {
   let productsList = [];
   if (searchQuery || category) {
-    console.log(category);
+    //console.log(category);
     productsList = products.filter((productItem) => {
       if (category.toLowerCase() === "all categories")
         return productItem.name

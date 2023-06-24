@@ -1,0 +1,5 @@
+.checkout-form .checkout-button {
+  width: fit-content;
+  background-color: green;
+  justify-self: center;
+}
