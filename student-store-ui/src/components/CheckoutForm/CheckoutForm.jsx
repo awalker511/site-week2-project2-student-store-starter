@@ -67,11 +67,14 @@ const CheckoutForm = ({
               <ul className="purchase">
                 {shoppingCart.map((element, index) => {
                   return (
-                    <li key={element.id}>
-                      {element.quantity} total {element.name} purchased at a
-                      cost of{" "}
-                      {formatter.format(element.price * element.quantity)}
-                    </li>
+                    <div className="full-receipt">
+                      <p>Showing receipt for {}</p>
+                      <li key={element.id}>
+                        {element.quantity} total {element.name} purchased at a
+                        cost of{" "}
+                        {formatter.format(element.price * element.quantity)}
+                      </li>
+                    </div>
                   );
                 })}
               </ul>
