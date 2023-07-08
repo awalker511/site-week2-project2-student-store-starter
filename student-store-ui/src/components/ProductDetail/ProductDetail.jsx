@@ -9,7 +9,6 @@ const ProductDetail = ({ handleAddItemToCart, handleRemoveItemToCart }) => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
-  //console.log(id);
 
   useEffect(() => {
     axios
